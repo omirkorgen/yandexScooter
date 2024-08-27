@@ -13,7 +13,14 @@ public class MainPage {
     private final By goButton = By.cssSelector(".Header_Button__28dPO");
     private final By orderField = By.className("Input_Input__1iN_Z");
     private final By statusButton = By.className("Header_Link__1TAG7");
-    private final By orderButton = By.className("Button_Button__ra12g");
+    //private final By orderScooterButtonInHeader = By.className("Button_Button__ra12g");
+    //private final By orderScooterButtonInMainBlock = By.className("Button_Middle__1CSJM");
+
+    public WebElement orderButton(String orderButtonVersion) {
+        String xpath = String.format("%s", orderButtonVersion);
+        return driver.findElement(By.className(xpath));
+    };
+
     public WebElement getListItemById(String itemId) {
         String xpath = ".//div[@id='accordion__heading-" + itemId + "']";
         return driver.findElement(By.xpath(xpath));
@@ -22,13 +29,19 @@ public class MainPage {
         String xpath = ".//div[@id='accordion__panel-" + itemId + "']";
         return driver.findElement(By.xpath(xpath));
     };
+    private final By acceptCookieButton = By.className("App_CookieButton__3cvqF");
 
     public MainPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void clickOrderButton() {
-        driver.findElement(orderButton).click();
+    public void clickAcceptCookieButton() {
+        driver.findElement(acceptCookieButton).click();
+    }
+
+    public void clickOrderButtonInMainPage(String orderButtonVersion) {
+        orderButton(orderButtonVersion).click();
+
     }
 
     public void clickOnQuestion(String itemId){
