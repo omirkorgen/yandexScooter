@@ -52,8 +52,7 @@ public class FaqTest {
     @Test
     public void clickOnFaqItem()throws Exception {
         var mainPain = new MainPage(driver);
-        WebElement element = driver.findElement(By.className("Home_FAQ__3uVm4"));
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", element);
+        mainPain.scrollQuestionSection();
         mainPain.clickOnQuestion(itemId);
         mainPain.getActualQuestionText(itemId);
         Assert.assertEquals("Текст вопроса не совпадает: ", expectedFaqQuestionText, mainPain.getActualQuestionText(itemId));

@@ -1,11 +1,9 @@
 package praktikum;
-import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import praktikum.pages.MainPage;
 import praktikum.pages.OrderPage;
 
@@ -42,7 +40,6 @@ public class OrderTest {
         return new Object[][] {
                 {"Button_Button__ra12g", "Антон", "Антонов", "Москва", "87066530492", "6", "сутки", "black", "Оставить перед дверью"},
                 {"Button_Middle__1CSJM", "Влад", "Владимир", "Пушкина", "87066530497", "1", "двое суток", "grey", "Позвонить заранее"},
-                //{"Таня", "Егорова", "Пермь", "1700125544", "10"},
         };
     }
 

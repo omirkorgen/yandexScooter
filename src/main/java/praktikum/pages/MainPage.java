@@ -1,5 +1,6 @@
 package praktikum.pages;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,11 +11,8 @@ import static org.junit.Assert.assertTrue;
 
 public class MainPage {
     private final WebDriver driver;
-    private final By goButton = By.cssSelector(".Header_Button__28dPO");
-    private final By orderField = By.className("Input_Input__1iN_Z");
-    private final By statusButton = By.className("Header_Link__1TAG7");
-    //private final By orderScooterButtonInHeader = By.className("Button_Button__ra12g");
-    //private final By orderScooterButtonInMainBlock = By.className("Button_Middle__1CSJM");
+
+    private final By questionsSection = By.className("Home_FAQ__3uVm4");
 
     public WebElement orderButton(String orderButtonVersion) {
         String xpath = String.format("%s", orderButtonVersion);
@@ -33,6 +31,12 @@ public class MainPage {
 
     public MainPage(WebDriver driver) {
         this.driver = driver;
+    }
+
+
+    public void scrollQuestionSection() {
+        WebElement element = driver.findElement(questionsSection);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", element);
     }
 
     public void clickAcceptCookieButton() {
