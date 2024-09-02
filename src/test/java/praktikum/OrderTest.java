@@ -1,4 +1,5 @@
 package praktikum;
+import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -38,8 +39,8 @@ public class OrderTest {
     @Parameterized.Parameters
     public static Object[][] orderData() {
         return new Object[][] {
-                {"Button_Button__ra12g", "Антон", "Антонов", "Москва", "87066530492", "6", "сутки", "black", "Оставить перед дверью"},
-                {"Button_Middle__1CSJM", "Влад", "Владимир", "Пушкина", "87066530497", "1", "двое суток", "grey", "Позвонить заранее"},
+                {"Кнопка 1", "Антон", "Антонов", "Москва", "87066530492", "6", "сутки", "black", "Оставить перед дверью"},
+                {"Кнопка 2", "Влад", "Владимир", "Пушкина", "87066530497", "1", "двое суток", "grey", "Позвонить заранее"},
         };
     }
 
@@ -52,7 +53,7 @@ public class OrderTest {
         var mainPain = new MainPage(driver);
 
         mainPain.clickAcceptCookieButton();
-        mainPain.clickOrderButtonInMainPage(orderButtonVersion);
+        mainPain.bottomOrderClick(orderButtonVersion);
 
         orderPage.checkOrderHeaderIsVisible();
         orderPage.clickOnInputName(name);
@@ -77,7 +78,7 @@ public class OrderTest {
         orderPage.clickOrderButton();
         orderPage.checkAcceptOrderButtonIsVisible();
         orderPage.clickAcceptOrder();
-        orderPage.checkSuccessOrderPageIsVisible();
+        Assert.assertTrue("Заказ не был оформлен: ", orderPage.isOrderConfirmationDisplayed());
 
         driver.quit();
     }

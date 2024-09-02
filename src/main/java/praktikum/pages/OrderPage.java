@@ -38,10 +38,15 @@ public class OrderPage {
     private final By courierComment = By.xpath(".//input[@placeholder='Комментарий для курьера']");
     private final By orderButton = By.xpath(".//div[@class='Order_Buttons__1xGrp']//button[text()='Заказать']");
     private final By acceptOrderButton = By.xpath(".//div[@class='Order_Buttons__1xGrp']//button[text()='Да']");
-
+    private final By confirmationTextLocator = By.className("Order_ModalHeader__3FDaJ");
 
     public OrderPage(WebDriver driver) {
         this.driver = driver;
+    }
+
+    public boolean isOrderConfirmationDisplayed() {
+        WebElement confirmationText = driver.findElement(confirmationTextLocator);
+        return confirmationText.isDisplayed();
     }
 
     public void clickOrderButton() {
