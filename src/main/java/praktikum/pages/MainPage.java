@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import praktikum.EnvConfig;
+
 import java.time.Duration;
 import static org.junit.Assert.assertTrue;
 import static praktikum.EnvConfig.EXPLICIT_WAIT;
@@ -62,7 +62,7 @@ public class MainPage {
         assertTrue(driver.findElement(By.xpath(".//div[@id='accordion__heading-" + itemId + "']")).isDisplayed());
     }
 
-    public void bottomOrderClick(String orderButtonPosition) {
+    public void buttonOrderClick(String orderButtonPosition) {
         String bottomName = "Кнопка 1";
         if(orderButtonPosition.equals(bottomName)){
             driver.findElement(orderButtonOnHeader).click();

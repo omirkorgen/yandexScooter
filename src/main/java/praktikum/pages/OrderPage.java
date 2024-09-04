@@ -46,7 +46,8 @@ public class OrderPage {
 
     public boolean isOrderConfirmationDisplayed() {
         WebElement confirmationText = driver.findElement(confirmationTextLocator);
-        return confirmationText.isDisplayed();
+        String text = confirmationText.getText();
+        return text.contains("Заказ оформлен");
     }
 
     public void clickOrderButton() {

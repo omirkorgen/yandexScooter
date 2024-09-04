@@ -53,7 +53,7 @@ public class OrderTest {
         var mainPain = new MainPage(driver);
 
         mainPain.clickAcceptCookieButton();
-        mainPain.bottomOrderClick(orderButtonVersion);
+        mainPain.buttonOrderClick(orderButtonVersion);
 
         orderPage.checkOrderHeaderIsVisible();
         orderPage.clickOnInputName(name);
@@ -81,5 +81,7 @@ public class OrderTest {
         Assert.assertTrue("Заказ не был оформлен: ", orderPage.isOrderConfirmationDisplayed());
 
         driver.quit();
+
+
     }
 }
